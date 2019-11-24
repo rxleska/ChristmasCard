@@ -14,7 +14,8 @@ class Store{
       circle(width-(0.05*height), (height/10)*i-(0.05*height), 0.04*height);
       this.arr[i-1] = createVector(width-(0.05*height), (height/10)*i-(0.05*height)); 
       fill(0,255,255);
-      text(items.get(store.type(i-1)), width-100, (height/10)*i-(0.04*height));
+      textSize(height* 0.02);
+      text(store.type(i-1)+ "   " + formatMon(items.get(store.type(i-1))), width-100, (height/10)*i-(0.04*height));
     }
    
   }

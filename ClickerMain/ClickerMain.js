@@ -23,17 +23,55 @@ function setup() {
 
 
 function draw() {
-  textSize(height* 0.04)
-  console.log(width);
   addStuff();
   background(100);
   button.show();
   store.show();
   fill(0,255,255);
   textAlign(LEFT);
-  text(floor(button.getTotal()),80,40);
+  textSize(height* 0.04);
+  text(formatMon(button.getTotal()),80,height/20);
 }
-
+function formatMon(x){
+  if(x >            1000000000000000000000000000000000000){
+    let d = "" + x; 
+    return "" + nfc(x, 5,2)*100 + " e" + (d.length -1);
+  }
+  else if(x >      1000000000000000000000000000000000){
+    return floor(x/10000000000000000000000000000000)/100 + " Dec";
+  }
+  else if(x >      1000000000000000000000000000000){
+    return floor(x/10000000000000000000000000000)/100 + " Non";
+  }
+  else if(x >      1000000000000000000000000000){
+    return floor(x/10000000000000000000000000)/100 + " Oct";
+  }
+  else if(x >      1000000000000000000000000){
+    return floor(x/10000000000000000000000)/100 + " Sept";
+  }
+  else if(x >      1000000000000000000000){
+    return floor(x/10000000000000000000)/100 + " Hex";
+  }
+  else if(x >      1000000000000000000){
+    return floor(x/10000000000000000)/100 + " Quin";
+  }
+  else if(x >      1000000000000000){
+    return floor(x/10000000000000)/100 + " Quad";
+  }
+  else if(x >      1000000000000){
+    return floor(x/10000000000)/100 + " T";
+  }
+  else if(x >      1000000000){
+    return floor(x/10000000)/100 + " B";
+  }
+  else if(x >      1000000){
+    return floor(x/10000)/100 + " M";
+  }
+  else if(x >      1000){
+    return floor(x/10)/100 + " K";
+  }
+  return floor(x);
+}
 function mouseClicked(){
   let d = dist(mouseX, mouseY, 200,200);
   if(d < 100){
