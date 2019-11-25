@@ -108,25 +108,25 @@ class Store{
   getCost(a){
     switch(a){
       case 0:
-        return 5 +  sq((items.get("blend")) *1);
+        return floor(5 *  ((0.05*items.get("blend")*items.get("blend")+1)));
       case 1:
-        return 15 +  sq(((items.get("sCone")) )*10);
+        return floor(15 *  ((0.05*items.get("sCone")*items.get("sCone")+1)));
       case 2:
-        return 100 +  sq((items.get("hole")) *50);
+        return floor(100 *  ((0.05*items.get("hole")*items.get("hole")+1)));
       case 3:
-        return 250 +  sq((items.get("ski")) *100);
+        return floor(250 *  ((0.05*items.get("ski")*items.get("ski")+1)));
       case 4:
-        return 1000 +  sq((items.get("canTru")) *500);
+        return floor(1000 * ((0.05*items.get("canTru")*items.get("canTru")+1)));
       case 5:
-        return 5000 +  sq((items.get("scis")) *2500);
+        return floor(5000 * ((0.05*items.get("scis")*items.get("scis")+1)));
       case 6:
-        return 10000 +  sq((items.get("AC")) *5000);
+        return floor(10000 *  ((0.05*items.get("AC")*items.get("AC")+1)));
       case 7:
-        return 100000 +  sq((items.get("portal")) *50000);
+        return floor(100000 *  ((0.05*items.get("portal")*items.get("portal")+1)));
       case 8:
-        return 1000000  +  sq((items.get("weat")) *500000);
+        return floor(1000000  *  ((0.05*items.get("weat")*items.get("weat")+1)));
       case 9:
-        return 5000000  +  sq((items.get("earth")) *1000000);
+        return floor(5000000  *  ((0.05*items.get("earth")*items.get("earth")+1)));
     }
   }
   //image(     ,width-(0.05*height), (height/10)*i-(0.05*height),0.04*height);
@@ -168,59 +168,11 @@ class Store{
   
   canBuy(a){
     let c = button.getTotal();
-    switch(a){
-      case 0:
-        if(c >= 5 +  sq((items.get("blend")) *1)){
-          return true;
-        }
-        return false;
-      case 1:
-        if(c >= 15 +  sq((items.get("sCone")) *10)){
-          return true;
-        }
-        return false;
-      case 2:
-        if(c >= 100 +  sq((items.get("hole")) *50)){
-          return true;
-        }
-        return false;
-      case 3:
-        if(c >= 250 +  sq((items.get("ski")) *100)){
-          return true;
-        }
-        return false;
-      case 4:
-        if(c >= 1000 +  sq((items.get("canTru")) *500)){
-          return true;
-        }
-        return false;
-      case 5:
-        if(c >= 5000 +  sq((items.get("scis")) *2500)){
-          return true;
-        }
-        return false;
-      case 6:
-        if(c >= 10000 +  sq((items.get("AC")) *5000)){
-          return true;
-        }
-        return false;
-      case 7:
-        if(c >= 100000 +  sq((items.get("portal")) *50000)){
-          return true;
-        }
-        return false;
-      case 8:
-        if(c >= 1000000  +  sq((items.get("weat")) *500000)){
-          return true;
-        }
-        return false;
-      case 9:
-        if(c >= 5000000  +  sq((items.get("earth"))*1000000)){
-          return true;
-        }
-        return false;
+    if(c >= store.getCost(a)){
+      return true;
     }
-  }
+    return false;
+  }  
 }
 /*switch(a){
       case "blend":

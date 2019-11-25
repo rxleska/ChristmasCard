@@ -1,6 +1,9 @@
 var button;
 var store;
 var items;
+let snowflakes = [];
+var counter = 0;
+var snowFreq;
 function setup() {
   createCanvas(windowWidth, windowHeight);
   background(100);
@@ -24,8 +27,28 @@ function setup() {
 
 
 function draw() {
+  let lenOfTot = button.getlen();
+  snowFreq = lenOfTot < 20 ? 1 : lenOfTot-19;
+  console.log(button.getlen());
   addStuff();
-  background(100);
+  background(30);
+  
+  let t = frameCount / 240; // update time
+  fill(255);
+  
+  if(counter < 20-lenOfTot){
+    counter++;
+  }
+  else{
+    createSnow();
+    counter = 0;
+  }
+  // loop through snowflakes with a for..of loop
+  for (let flake of snowflakes) {
+    flake.update(t); // update snowflake position
+    flake.display(); // draw snowflake
+  }
+  
   button.show();
   store.show();
   fill(0,255,255);
@@ -135,5 +158,13 @@ function getInfo(a){
         return "COST:" + store.getCost(a) + "\n I control the Weather - Bill Murray (Groundhog Day:1993)";
       case 9:        
         return "COST:" + store.getCost(a) + "\n Sun melts snow, less sun, more snow.";
+  }
+}
+
+function createSnow(){
+  
+  // create a random number of snowflakes each frame
+  for (let i = 0; i < snowFreq; i++) {
+    snowflakes.push(new snowflake()); // append snowflake object
   }
 }
