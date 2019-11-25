@@ -1,6 +1,16 @@
 class Store{
   constructor(){
     this.arr = [];
+    this.l = loadImage('ClickArt/Blender.png');
+    this.b = loadImage('ClickArt/SnowCone.png');
+    this.c = loadImage('ClickArt/HolePuncher.png');
+    this.d = loadImage('ClickArt/Ski.png');
+    this.e = loadImage('ClickArt/CanTru.png');
+    this.f = loadImage('ClickArt/Scis.png');
+    this.g = loadImage('ClickArt/AC.png');
+    this.h = loadImage('ClickArt/Portal.png');
+    this.j = loadImage('ClickArt/Weat.png');
+    this.k = loadImage('ClickArt/Earth.png');
   }
   show(){
     textAlign(RIGHT);
@@ -15,7 +25,8 @@ class Store{
       this.arr[i-1] = createVector(width-(0.05*height), (height/10)*i-(0.05*height)); 
       fill(0,255,255);
       textSize(height* 0.02);
-      text(store.type(i-1)+ "   " + formatMon(items.get(store.type(i-1))), width-100, (height/10)*i-(0.04*height));
+      text(store.getName(i-1)+ "   " + formatMon(items.get(store.type(i-1))), width-100, (height/10)*i-(0.045*height));
+      store.getPic(i-1,i);
     }
    
   }
@@ -29,9 +40,9 @@ class Store{
       case 1:
         return "sCone";
       case 2:
-        return "ski";
-      case 3:
         return "hole";
+      case 3:
+        return "ski";
       case 4:
         return "canTru";
       case 5:
@@ -70,6 +81,30 @@ class Store{
         return 1000000;
     }
   }
+  getName(a){
+    switch(a){
+      case 0:
+        return "Blenders";
+      case 1:
+        return "Snow Cone Machines";
+      case 2:
+        return "Paper Hole punchers";
+      case 3:
+        return "Ski Snow Blasters";
+      case 4:
+        return "Canada Snow Shipments";
+      case 5:
+        return "Scissors for Paper Flakes";
+      case 6:
+        return "Outside AC Machines";
+      case 7:
+        return "Portals To Antartica";
+      case 8:
+        return "Weather Machines";
+      case 9:
+        return "Earth Movers";
+    }
+  }
   getCost(a){
     switch(a){
       case 0:
@@ -77,9 +112,9 @@ class Store{
       case 1:
         return 15 +  sq(((items.get("sCone")) )*10);
       case 2:
-        return 100 +  sq((items.get("ski")) *50);
+        return 100 +  sq((items.get("hole")) *50);
       case 3:
-        return 250 +  sq((items.get("hole")) *100);
+        return 250 +  sq((items.get("ski")) *100);
       case 4:
         return 1000 +  sq((items.get("canTru")) *500);
       case 5:
@@ -94,6 +129,43 @@ class Store{
         return 5000000  +  sq((items.get("earth")) *1000000);
     }
   }
+  //image(     ,width-(0.05*height), (height/10)*i-(0.05*height),0.04*height);
+  getPic(a,i){
+    
+    switch(a){
+      case 0:
+        image(this.l, width-(0.05*height), (height/10)*i-(0.05*height),0.06*height,0.06*height);
+      break;
+      case 1:
+        image(this.b, width-(0.05*height), (height/10)*i-(0.05*height),0.06*height,0.06*height);
+      break;
+      case 2:
+        image(this.c ,width-(0.05*height), (height/10)*i-(0.05*height),0.06*height,0.06*height);
+      break;
+      case 3:
+        image(this.d ,width-(0.05*height), (height/10)*i-(0.05*height),0.06*height,0.06*height);
+      break;
+      case 4:
+        image(this.e ,width-(0.05*height), (height/10)*i-(0.05*height),0.06*height,0.06*height);
+      break;
+      case 5:
+        image(this.f, width-(0.05*height), (height/10)*i-(0.05*height),0.06*height,0.06*height);
+      break;
+      case 6:        
+        image(this.g, width-(0.05*height), (height/10)*i-(0.05*height),0.06*height,0.06*height);
+      break;
+      case 7:        
+        image(this.h, width-(0.05*height), (height/10)*i-(0.05*height),0.06*height,0.06*height);
+      break;
+      case 8:        
+        image(this.j, width-(0.05*height), (height/10)*i-(0.05*height),0.06*height,0.06*height);
+      break;
+      case 9:        
+        image(this.k, width-(0.05*height), (height/10)*i-(0.05*height),0.06*height,0.06*height);
+      break;
+    }
+  }
+  
   canBuy(a){
     let c = button.getTotal();
     switch(a){
@@ -108,12 +180,12 @@ class Store{
         }
         return false;
       case 2:
-        if(c >= 100 +  sq((items.get("ski")) *50)){
+        if(c >= 100 +  sq((items.get("hole")) *50)){
           return true;
         }
         return false;
       case 3:
-        if(c >= 250 +  sq((items.get("hole")) *100)){
+        if(c >= 250 +  sq((items.get("ski")) *100)){
           return true;
         }
         return false;
