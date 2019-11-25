@@ -60,25 +60,25 @@ class Store{
   getTypeVal(a){
     switch(a){
       case 0:
-        return 1;
+        return 0.1 * (items.get(store.type(a))/10 +1);
       case 1:
-        return 5;
+        return 0.5 * (items.get(store.type(a))/10 +1);
       case 2:
-        return 15;
+        return 1.5 * (items.get(store.type(a))/10 +1);
       case 3:
-        return 100;
+        return 10 * (items.get(store.type(a))/10 +1);
       case 4:
-        return 250;
+        return 25 * (items.get(store.type(a))/10 +1);
       case 5:
-        return 1000;
+        return 100 * (items.get(store.type(a))/10 +1);
       case 6:
-        return 5000;
+        return 500 * (items.get(store.type(a))/10 +1);
       case 7:
-        return 10000;
+        return 1000 * (items.get(store.type(a))/10 +1);
       case 8:
-        return 100000;
+        return 10000 * (items.get(store.type(a))/10 +1);
       case 9:
-        return 1000000;
+        return 100000 * (items.get(store.type(a))/10 +1);
     }
   }
   getName(a){
