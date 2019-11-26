@@ -64,7 +64,7 @@ class Store{
       case 1:
         return 0.5 * (items.get(store.type(a))/10 +1);
       case 2:
-        return 1.5 * (items.get(store.type(a))/10 +1);
+        return 1 * (items.get(store.type(a))/10 +1);
       case 3:
         return 10 * (items.get(store.type(a))/10 +1);
       case 4:
@@ -108,25 +108,25 @@ class Store{
   getCost(a){
     switch(a){
       case 0:
-        return floor(5 *  ((0.05*items.get("blend")*items.get("blend")+1)));
+        return floor(5 + store.fibon(items.get("blend")));
       case 1:
-        return floor(15 *  ((0.05*items.get("sCone")*items.get("sCone")+1)));
+        return floor(15 + (3* store.fibon(items.get("sCone"))));
       case 2:
-        return floor(100 *  ((0.05*items.get("hole")*items.get("hole")+1)));
+        return floor(100 +  (10 * store.fibon(items.get("hole"))));
       case 3:
-        return floor(250 *  ((0.05*items.get("ski")*items.get("ski")+1)));
+        return floor(250 +  (23 * store.fibon(items.get("ski"))));
       case 4:
-        return floor(1000 * ((0.05*items.get("canTru")*items.get("canTru")+1)));
+        return floor(1000 + (95 * store.fibon(items.get("canTru"))));
       case 5:
-        return floor(5000 * ((0.05*items.get("scis")*items.get("scis")+1)));
+        return floor(5000 + (434 * store.fibon(items.get("scis"))));
       case 6:
-        return floor(10000 *  ((0.05*items.get("AC")*items.get("AC")+1)));
+        return floor(10000 +  (834 * store.fibon(items.get("AC"))));
       case 7:
-        return floor(100000 *  ((0.05*items.get("portal")*items.get("portal")+1)));
+        return floor(100000 +  (94360 * store.fibon(items.get("portal"))));
       case 8:
-        return floor(1000000  *  ((0.05*items.get("weat")*items.get("weat")+1)));
+        return floor(1000000  +  (92300 * store.fibon(items.get("weat"))));
       case 9:
-        return floor(5000000  *  ((0.05*items.get("earth")*items.get("earth")+1)));
+        return floor(5000000  +  (483590 * store.fibon(items.get("earth"))));
     }
   }
   //image(     ,width-(0.05*height), (height/10)*i-(0.05*height),0.04*height);
@@ -173,6 +173,14 @@ class Store{
     }
     return false;
   }  
+  
+  fibon(n){
+    if(n == 0){
+      return 0;}
+    if(n == 1){
+      return 1;}
+    return store.fibon(n-1) + store.fibon(n-2);
+  }
 }
 /*switch(a){
       case "blend":

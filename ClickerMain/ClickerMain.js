@@ -29,7 +29,6 @@ function setup() {
 function draw() {
   let lenOfTot = button.getlen();
   snowFreq = lenOfTot < 20 ? 1 : lenOfTot-19;
-  console.log(button.getlen());
   addStuff();
   background(30);
   
