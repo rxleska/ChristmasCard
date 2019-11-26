@@ -1,6 +1,6 @@
 class Button{
   constructor(){
-    this.total = 96643464484646846846468468466488486864846464846468448464643543543546546540;
+    this.total = 0;
     this.freq = 1;
     this.img = loadImage('ClickArt/Snow.png');
   }
