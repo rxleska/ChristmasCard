@@ -32,6 +32,9 @@ function draw() {
   addStuff();
   background(30);
   
+  fill(255);
+  rect(0,height,width,-((height/1000000000000)*button.getTotal()));
+  
   let t = frameCount / 240; // update time
   fill(255);
   
