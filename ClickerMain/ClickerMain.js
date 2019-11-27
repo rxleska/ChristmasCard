@@ -100,7 +100,7 @@ function formatMon(x){
   return floor(x);
 }
 function mouseClicked(){
-  let d = dist(mouseX, mouseY, 200,200);
+  let d = dist(mouseX, mouseY, height/5,height/5);
   if(d < 100){
     button.clicked();
   }
