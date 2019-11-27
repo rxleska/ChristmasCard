@@ -138,25 +138,25 @@ function info(){
 function getInfo(a){
   switch(a){
       case 0:
-        return "COST:" + store.getCost(a) + "\n More blenders for kids to blend ice cubes.";
+        return "COST:" + formatMon(store.getCost(a)) + "\n More blenders for kids to blend ice cubes.";
       case 1:
-        return "COST:" + store.getCost(a) + "\n Just plug it in and turn it on, summer skiing here we come!";
+        return "COST:" + formatMon(store.getCost(a)) + "\n Just plug it in and turn it on, summer skiing here we come!";
       case 2:
-        return "COST:" + store.getCost(a) + "\n Hey, it looks kinda like snow.";
+        return "COST:" + formatMon(store.getCost(a)) + "\n Hey, it looks kinda like snow.";
       case 3:
-        return "COST:" + store.getCost(a) + "\n Good enough for buck hill, good enough for me.";
+        return "COST:" + formatMon(store.getCost(a)) + "\n Good enough for buck hill, good enough for me.";
       case 4:
-        return "COST:" + store.getCost(a) + "\n Canada always has Snow, eh?";
+        return "COST:" + formatMon(store.getCost(a)) + "\n Canada always has Snow, eh?";
       case 5:
-        return "COST:" + store.getCost(a) + "\n These look even more like snow.";
+        return "COST:" + formatMon(store.getCost(a)) + "\n These look even more like snow.";
       case 6:        
-        return "COST:" + store.getCost(a) + "\n This is how we'll fix global warming!";
+        return "COST:" + formatMon(store.getCost(a)) + "\n This is how we'll fix global warming!";
       case 7:        
-        return "COST:" + store.getCost(a) + "\n Most usefull task for a portal right?";
+        return "COST:" + formatMon(store.getCost(a)) + "\n Most usefull task for a portal right?";
       case 8:        
-        return "COST:" + store.getCost(a) + "\n I control the Weather - Bill Murray (Groundhog Day:1993)";
+        return "COST:" + formatMon(store.getCost(a)) + "\n I control the Weather - Bill Murray (Groundhog Day:1993)";
       case 9:        
-        return "COST:" + store.getCost(a) + "\n Sun melts snow, less sun, more snow.";
+        return "COST:" + formatMon(store.getCost(a)) + "\n Sun melts snow, less sun, more snow.";
   }
 }
 

@@ -60,25 +60,25 @@ class Store{
   getTypeVal(a){
     switch(a){
       case 0:
-        return 0.1 * (items.get(store.type(a))/10 +1);
+        return 0.1;
       case 1:
-        return 0.5 * (items.get(store.type(a))/10 +1);
+        return 1;
       case 2:
-        return 1 * (items.get(store.type(a))/10 +1);
+        return 8;
       case 3:
-        return 10 * (items.get(store.type(a))/10 +1);
+        return 47;
       case 4:
-        return 25 * (items.get(store.type(a))/10 +1);
+        return 260;
       case 5:
-        return 100 * (items.get(store.type(a))/10 +1);
+        return 1400;
       case 6:
-        return 500 * (items.get(store.type(a))/10 +1);
+        return 7800;
       case 7:
-        return 1000 * (items.get(store.type(a))/10 +1);
+        return 44000;
       case 8:
-        return 10000 * (items.get(store.type(a))/10 +1);
+        return 260000;
       case 9:
-        return 100000 * (items.get(store.type(a))/10 +1);
+        return 1600000;
     }
   }
   getName(a){
@@ -108,25 +108,25 @@ class Store{
   getCost(a){
     switch(a){
       case 0:
-        return floor(5 + store.fibon(items.get("blend")));
+        return floor(15  * (Math.pow(1.15, items.get(store.type(a)))));
       case 1:
-        return floor(15 + (3* store.fibon(items.get("sCone"))));
+        return floor(100  * (Math.pow(1.15, items.get(store.type(a)))));
       case 2:
-        return floor(100 +  (10 * store.fibon(items.get("hole"))));
+        return floor(1100  * (Math.pow(1.15, items.get(store.type(a)))));
       case 3:
-        return floor(250 +  (23 * store.fibon(items.get("ski"))));
+        return floor(12000  * (Math.pow(1.15, items.get(store.type(a)))));
       case 4:
-        return floor(1000 + (95 * store.fibon(items.get("canTru"))));
+        return floor(130000  * (Math.pow(1.15, items.get(store.type(a)))));
       case 5:
-        return floor(5000 + (434 * store.fibon(items.get("scis"))));
+        return floor(1400000  * (Math.pow(1.15, items.get(store.type(a)))));
       case 6:
-        return floor(10000 +  (834 * store.fibon(items.get("AC"))));
+        return floor(20000000  * (Math.pow(1.15, items.get(store.type(a)))));
       case 7:
-        return floor(100000 +  (94360 * store.fibon(items.get("portal"))));
+        return floor(330000000  * (Math.pow(1.15, items.get(store.type(a)))));
       case 8:
-        return floor(1000000  +  (92300 * store.fibon(items.get("weat"))));
+        return floor(5100000000  * (Math.pow(1.15, items.get(store.type(a)))));
       case 9:
-        return floor(5000000  +  (483590 * store.fibon(items.get("earth"))));
+        return floor(75000000000  * (Math.pow(1.15, items.get(store.type(a)))));
     }
   }
   //image(     ,width-(0.05*height), (height/10)*i-(0.05*height),0.04*height);
@@ -173,14 +173,7 @@ class Store{
     }
     return false;
   }  
-  
-  fibon(n){
-    if(n == 0){
-      return 0;}
-    if(n == 1){
-      return 1;}
-    return store.fibon(n-1) + store.fibon(n-2);
-  }
+ 
 }
 /*switch(a){
       case "blend":
