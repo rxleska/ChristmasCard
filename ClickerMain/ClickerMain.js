@@ -14,7 +14,7 @@ var items;
 let snowflakes = [];
 var counter = 0;
 var snowFreq;
-
+var version = "Version 1.7";
 //Setup: Canvas, background, init objects
 function setup() {
   //Canvas and Background
@@ -46,7 +46,7 @@ function setup() {
 
 //Runs at framerate (60fps)
 function draw() {
-  text("Version 1.6", 5, height-10);
+  
   //Sets private var of total length
   let lenOfTot = button.getlen();
   
@@ -93,6 +93,11 @@ function draw() {
   textAlign(LEFT);
   textSize(height* 0.04);
   text(formatMon(button.getTotal()),80,height/20);
+  
+  textAlign(LEFT);
+  fill(0,255,255);
+  textSize(height * 0.03);
+  text(version, width/100, height-(height * 0.01));
   
   //display drop downs on store items 
   info();
