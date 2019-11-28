@@ -1,6 +1,6 @@
 class Button{
   constructor(){
-    this.total = 0;
+    this.total = 10000000000;
     this.freq = 1;
     this.bounce = 1.0;
     this.relay = 10;

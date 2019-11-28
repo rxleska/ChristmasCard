@@ -1,14 +1,31 @@
+//##################################################################################
+//This is a christmas themed clicker game based upon cookie clicker made for my AP 
+//computer science class, The goal is to create enough snow to close school, to do 
+//this you and your friends are making snow. As the saying says 'you need to spend 
+//money to make money', spend snow flakes to increase your rate of snow making.
+//  ENJOY,
+//   -RYAN X LESKA
+//##################################################################################
+
+//Instantiate Objects, counters, and snowflake array
 var button;
 var store;
 var items;
 let snowflakes = [];
 var counter = 0;
 var snowFreq;
+
+//Setup: Canvas, background, init objects
 function setup() {
+  //Canvas and Background
   createCanvas(windowWidth, windowHeight);
   background(100);
+  
+  //objects setup
   button = new Button();
   store = new Store();
+  
+  //Init map and added items 
   items = new Map();
   items.set("blend", 0);
   items.set("sCone", 0);
@@ -20,24 +37,37 @@ function setup() {
   items.set("portal", 0);
   items.set("weat", 0);
   items.set("earth", 0);
+  
+  //Other settings 
   textSize(height* 0.04);
   counter = 0;
   imageMode(CENTER);
 }
 
-
+//Runs at framerate (60fps)
 function draw() {
+  touchscreen();
+  //Sets private var of total length
   let lenOfTot = button.getlen();
+  
+  //Snow frequency of spawning picks up after 1e+20
   snowFreq = lenOfTot < 20 ? 1 : lenOfTot-19;
-  addStuff();
+  
+  //Adds snowflakes to total based on the items
+  addFlakes();
+  
+  //redraws background
   background(30);
   
+  //Snow build-up
   fill(255);
   rect(0,height,width,-((height/1000000000000)*button.getTotal()));
   
+  //snow angluar speed
   let t = frameCount / 240; // update time
   fill(255);
   
+  //Snow Creation speed
   if(counter < 20-lenOfTot){
     counter++;
   }
@@ -45,20 +75,30 @@ function draw() {
     createSnow();
     counter = 0;
   }
+  
   // loop through snowflakes with a for..of loop
   for (let flake of snowflakes) {
     flake.update(t); // update snowflake position
     flake.display(); // draw snowflake
   }
   
+  //Display Button
   button.show();
+  
+  //Display Store items and amounts
   store.show();
+  
+  //Display Total Flakes
   fill(0,255,255);
   textAlign(LEFT);
   textSize(height* 0.04);
   text(formatMon(button.getTotal()),80,height/20);
+  
+  //display drop downs on store items 
   info();
 }
+
+//Formats numbers
 function formatMon(x){
   if(x >            1000000000000000000000000000000000000){
     let d = "" + x; 
@@ -99,11 +139,16 @@ function formatMon(x){
   }
   return floor(x);
 }
+
+//Finds clicked on buttons
 function mouseClicked(){
+  //check for snow button click
   let d = dist(mouseX, mouseY, height/5,height/5);
   if(d < 100){
     button.clicked();
   }
+  
+  //check for item buy
   for(var i = 0; i < 10; i++){
     d = dist(mouseX, mouseY, store.getPoint(i).x, store.getPoint(i).y);
       if(d < height*0.04){
@@ -116,16 +161,40 @@ function mouseClicked(){
    }
 }
 
-function addStuff(){
+//Finds clicked on buttons
+function touchStarted(){
+  //check for snow button click
+  let d = dist(mouseX, mouseY, height/5,height/5);
+  if(d < 100){
+    button.clicked();
+  }
+  
+  //check for item buy
+  for(var i = 0; i < 10; i++){
+    d = dist(mouseX, mouseY, store.getPoint(i).x, store.getPoint(i).y);
+      if(d < height*0.04){
+        if(store.canBuy(i)){
+          button.buyFrom(store.getCost(i));
+          items.set(store.type(i),items.get(store.type(i))+1);
+        }
+        
+      }
+   }
+}
+
+//Add snow flakes, iterates for each item
+function addFlakes(){
   for(var i = 0; i < 10; i++){
     button.addTo((items.get(store.type(i))*store.getTypeVal(i))/60);
   }
 }
 
+//Dynamic window resizes
 function windowResized(){
   resizeCanvas(windowWidth, windowHeight);
 }
 
+//loops getInfo for item drop downs
 function info(){
   for(var i = 0; i < 10; i++){
     d = dist(mouseX, mouseY, store.getPoint(i).x, store.getPoint(i).y);
@@ -138,6 +207,7 @@ function info(){
    }
 }
 
+//gets Info of each item
 function getInfo(a){
   switch(a){
       case 0:
@@ -163,8 +233,9 @@ function getInfo(a){
   }
 }
 
+
+//Creates Snow 
 function createSnow(){
-  
   // create a random number of snowflakes each frame
   for (let i = 0; i < snowFreq; i++) {
     snowflakes.push(new snowflake()); // append snowflake object
