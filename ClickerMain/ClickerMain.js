@@ -101,7 +101,7 @@ function formatMon(x){
 }
 function mouseClicked(){
   let d = dist(mouseX, mouseY, height/5,height/5);
-  if(d < 100){
+  if(d < height/10){
     button.clicked();
   }
   for(var i = 0; i < 10; i++){
