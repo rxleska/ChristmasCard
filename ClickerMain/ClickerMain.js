@@ -144,7 +144,7 @@ function formatMon(x){
 function mouseClicked(){
   //check for snow button click
   let d = dist(mouseX, mouseY, height/5,height/5);
-  if(d < 100){
+  if(d < height/10){
     button.clicked();
   }
   
