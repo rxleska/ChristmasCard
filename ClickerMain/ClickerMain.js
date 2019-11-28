@@ -46,7 +46,7 @@ function setup() {
 
 //Runs at framerate (60fps)
 function draw() {
-  touchscreen();
+  text("Version 1.6", 5, height-10);
   //Sets private var of total length
   let lenOfTot = button.getlen();
   
