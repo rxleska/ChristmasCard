@@ -8,7 +8,7 @@ class Sign{
     this.words.set(1, "SCHOOL IS DELAYED 2 HOURS");
     this.words.set(2, "AFTER SCHOOL ACTIVITIES CANCLED: VOLLY BALL, SOCCER, TENNIS. FOOTBALL IS STILL ON!");
     this.words.set(3, "SCHOOL CANCLED TOMMARROW");
-    this.words.set(4, "SCHOOL CANCLED FOR # DAYS");
+    this.words.set(4, "SCHOOL CANCLED FOR 3 DAYS");
     this.words.set(5, "SCHOOL CANCELED FOR THE WEEK");
     this.words.set(6, "SCHOOL CANCLED UNTIL FURTHER NOTICE");
     this.words.set(7, "Polar Bears Migrating north to warm up");
