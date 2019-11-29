@@ -14,7 +14,8 @@ var items;
 let snowflakes = [];
 var counter = 0;
 var snowFreq;
-var version = "Version 1.7";
+var sign;
+var version = "Version 1.8";
 //Setup: Canvas, background, init objects
 function setup() {
   //Canvas and Background
@@ -24,6 +25,7 @@ function setup() {
   //objects setup
   button = new Button();
   store = new Store();
+  sign = new Sign();
   
   //Init map and added items 
   items = new Map();
@@ -59,6 +61,8 @@ function draw() {
   //redraws background
   background(30);
   
+  sign.drawSign();
+  
   //Snow build-up
   fill(255);
   rect(0,height,width,-((height/1000000000000)*button.getTotal()));
@@ -92,57 +96,18 @@ function draw() {
   fill(0,255,255);
   textAlign(LEFT);
   textSize(height* 0.04);
-  text(formatMon(button.getTotal()),80,height/20);
+  text(store.formatMon(button.getTotal()),80,height/20);
   
   textAlign(LEFT);
   fill(0,255,255);
   textSize(height * 0.03);
-  text(version, width/100, height-(height * 0.01));
+  text(version, width/60, height-(height * 0.01));
+  
+  sign.signMove();
+  
   
   //display drop downs on store items 
   info();
-}
-
-//Formats numbers
-function formatMon(x){
-  if(x >            1000000000000000000000000000000000000){
-    let d = "" + x; 
-    return "" + nfc(x, 5,2)*100 + " e" + (d.length -1);
-  }
-  else if(x >      1000000000000000000000000000000000){
-    return floor(x/10000000000000000000000000000000)/100 + " Dec";
-  }
-  else if(x >      1000000000000000000000000000000){
-    return floor(x/10000000000000000000000000000)/100 + " Non";
-  }
-  else if(x >      1000000000000000000000000000){
-    return floor(x/10000000000000000000000000)/100 + " Oct";
-  }
-  else if(x >      1000000000000000000000000){
-    return floor(x/10000000000000000000000)/100 + " Sept";
-  }
-  else if(x >      1000000000000000000000){
-    return floor(x/10000000000000000000)/100 + " Hex";
-  }
-  else if(x >      1000000000000000000){
-    return floor(x/10000000000000000)/100 + " Quin";
-  }
-  else if(x >      1000000000000000){
-    return floor(x/10000000000000)/100 + " Quad";
-  }
-  else if(x >      1000000000000){
-    return floor(x/10000000000)/100 + " T";
-  }
-  else if(x >      1000000000){
-    return floor(x/10000000)/100 + " B";
-  }
-  else if(x >      1000000){
-    return floor(x/10000)/100 + " M";
-  }
-  else if(x >      1000){
-    return floor(x/10)/100 + " K";
-  }
-  return floor(x);
 }
 
 //Finds clicked on buttons
@@ -216,25 +181,25 @@ function info(){
 function getInfo(a){
   switch(a){
       case 0:
-        return "COST:" + formatMon(store.getCost(a)) + "\n More blenders for kids to blend ice cubes.";
+        return "COST:" + store.formatMon(store.getCost(a)) + "\n More blenders for kids to blend ice cubes.";
       case 1:
-        return "COST:" + formatMon(store.getCost(a)) + "\n Just plug it in and turn it on, summer skiing here we come!";
+        return "COST:" + store.formatMon(store.getCost(a)) + "\n Just plug it in and turn it on, summer skiing here we come!";
       case 2:
-        return "COST:" + formatMon(store.getCost(a)) + "\n Hey, it looks kinda like snow.";
+        return "COST:" + store.formatMon(store.getCost(a)) + "\n Hey, it looks kinda like snow.";
       case 3:
-        return "COST:" + formatMon(store.getCost(a)) + "\n Good enough for buck hill, good enough for me.";
+        return "COST:" + store.formatMon(store.getCost(a)) + "\n Good enough for buck hill, good enough for me.";
       case 4:
-        return "COST:" + formatMon(store.getCost(a)) + "\n Canada always has Snow, eh?";
+        return "COST:" + store.formatMon(store.getCost(a)) + "\n Canada always has Snow, eh?";
       case 5:
-        return "COST:" + formatMon(store.getCost(a)) + "\n These look even more like snow.";
+        return "COST:" + store.formatMon(store.getCost(a)) + "\n These look even more like snow.";
       case 6:        
-        return "COST:" + formatMon(store.getCost(a)) + "\n This is how we'll fix global warming!";
+        return "COST:" + store.formatMon(store.getCost(a)) + "\n This is how we'll fix global warming!";
       case 7:        
-        return "COST:" + formatMon(store.getCost(a)) + "\n Most usefull task for a portal right?";
+        return "COST:" + store.formatMon(store.getCost(a)) + "\n Most usefull task for a portal right?";
       case 8:        
-        return "COST:" + formatMon(store.getCost(a)) + "\n I control the Weather - Bill Murray (Groundhog Day:1993)";
+        return "COST:" + store.formatMon(store.getCost(a)) + "\n I control the Weather - Bill Murray (Groundhog Day:1993)";
       case 9:        
-        return "COST:" + formatMon(store.getCost(a)) + "\n Sun melts snow, less sun, more snow.";
+        return "COST:" + store.formatMon(store.getCost(a)) + "\n Sun melts snow, less sun, more snow.";
   }
 }
 

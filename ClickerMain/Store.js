@@ -25,7 +25,7 @@ class Store{
       this.arr[i-1] = createVector(width-(0.05*height), (height/10)*i-(0.05*height)); 
       fill(0,255,255);
       textSize(height* 0.02);
-      text(store.getName(i-1)+ "   " + formatMon(items.get(store.type(i-1))), width-100, (height/10)*i-(0.045*height));
+      text(store.getName(i-1)+ "   " + store.formatMon(items.get(store.type(i-1))), width-100, (height/10)*i-(0.045*height));
       store.getPic(i-1,i);
     }
    
@@ -172,5 +172,47 @@ class Store{
       return true;
     }
     return false;
-  }  
+  }
+  
+  //Formats numbers
+ formatMon(x){
+  if(x >            1000000000000000000000000000000000000){
+    let d = "" + x; 
+    return "" + nfc(x, 5,2)*100 + " e" + (d.length -1);
+  }
+  else if(x >      1000000000000000000000000000000000){
+    return floor(x/10000000000000000000000000000000)/100 + " Dec";
+  }
+  else if(x >      1000000000000000000000000000000){
+    return floor(x/10000000000000000000000000000)/100 + " Non";
+  }
+  else if(x >      1000000000000000000000000000){
+    return floor(x/10000000000000000000000000)/100 + " Oct";
+  }
+  else if(x >      1000000000000000000000000){
+    return floor(x/10000000000000000000000)/100 + " Sept";
+  }
+  else if(x >      1000000000000000000000){
+    return floor(x/10000000000000000000)/100 + " Hex";
+  }
+  else if(x >      1000000000000000000){
+    return floor(x/10000000000000000)/100 + " Quin";
+  }
+  else if(x >      1000000000000000){
+    return floor(x/10000000000000)/100 + " Quad";
+  }
+  else if(x >      1000000000000){
+    return floor(x/10000000000)/100 + " T";
+  }
+  else if(x >      1000000000){
+    return floor(x/10000000)/100 + " B";
+  }
+  else if(x >      1000000){
+    return floor(x/10000)/100 + " M";
+  }
+  else if(x >      1000){
+    return floor(x/10)/100 + " K";
+  }
+  return floor(x);
+}
 }
