@@ -2,8 +2,9 @@ class Sign{
   constructor(){
     this.posX = (height/80) + (height/2);
     this.posY = ((height*9)/10);
-    this.word = 0;
+    this.word = -1;
     this.words = new Map();
+    this.words.set(-1, "GOOD MORNING ROSEMOUNT, HAVE A NICE DAY");
     this.words.set(0, "THIS IS A TEST OF OUR EMERGENCY SERVICES");
     this.words.set(1, "SCHOOL IS DELAYED 2 HOURS");
     this.words.set(2, "AFTER SCHOOL ACTIVITIES CANCLED: VOLLY BALL, SOCCER, TENNIS. FOOTBALL IS STILL ON!");
@@ -48,10 +49,7 @@ class Sign{
     
     this.posX =  this.posX > - (this.words.get(this.word).length * 20) ?  this.posX-1 : (height/80) + (height/2);
     if(this.posX == (height/80) + (height/2)){
-      this.word = this.word+1;
-    }
-    if(this.word == 11){
-      this.word = 0;
+      this.word = (button.getlen()/2) - 1;
     }
     console.log(this.posX);
   }
