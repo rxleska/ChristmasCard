@@ -1,8 +1,18 @@
 <html>
 <head>
+	<link rel="manifest" href="./manifest.webmanifest">
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
+	<script>
+		 //first check if the browser supports the service worker
+		 if ("serviceWorker" in navigator) {
+			 //navigator.serviceWorker returns a service worker container, 
+			 // that has a method to register it to the browser. 
+			 //Register method returns a promise, which allows you to use the ‘.then’ or ‘.catch’ syntax
+			 navigator.serviceWorker.register("serviceWorker.js")
+			 .catch((err) => {console.log("Service worker registration failed");});
+		 }
+	</script>
   <!-- PLEASE NO CHANGES BELOW THIS LINE (UNTIL I SAY SO) -->
   <script language="javascript" type="text/javascript" src="libraries/p5.min.js"></script>
   <script language="javascript" type="text/javascript" src="Button.js"></script>

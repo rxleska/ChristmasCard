@@ -1,0 +1,10 @@
+//manifest.webmanifest
+{
+  "name":"Christmas Card",
+  "short_name":"Card",
+  "start_url":"https://rxleska.github.io/ChristmasCard/ClickerMain/index.html",
+  "display":"standalone", //the preferred display mode (look and feel)
+  "background_color":"#000000", //color of the background until the stylesheet is loaded
+  "description":"turning my app into a PWA",
+  "icons":[{"src":"/ClickArt/Snow.png"}]
+}
