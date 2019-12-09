@@ -51,6 +51,6 @@ class Sign{
     if(this.posX == (height/80) + (height/2)){
       this.word = (button.getlen()/2) - 1;
     }
-    console.log(this.posX);
+    //console.log(this.posX);
   }
 }

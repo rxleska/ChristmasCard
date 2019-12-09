@@ -5,5 +5,5 @@
   "display":"standalone",
   "background_color":"#000000", 
   "description":"turning my app into a pwa",
-  "icons":[{"src":"/ClickArt/Snow.png"}]
+  "icons":[{"src":"ClickArt/Snow.png"}]
 }
