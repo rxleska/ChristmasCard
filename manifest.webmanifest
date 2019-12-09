@@ -1,0 +1,9 @@
+{
+  "name":"christmascard",
+  "short_name":"card",
+  "start_url":"https://rxleska.github.io/ChristmasCard/index.html",
+  "display":"standalone",
+  "background_color":"#000000", 
+  "description":"turning my app into a pwa",
+  "icons":[{"src":"/ClickArt/Snow.png"}]
+}
