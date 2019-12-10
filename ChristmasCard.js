@@ -15,7 +15,7 @@ let snowflakes = [];
 var counter = 0;
 var snowFreq;
 var sign;
-var version = "Version 2.0.3";
+var version = "Version 2.0.4";
 //Setup: Canvas, background, init objects
 function setup() {
   //Canvas and Background
