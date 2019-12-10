@@ -15,7 +15,7 @@ let snowflakes = [];
 var counter = 0;
 var snowFreq;
 var sign;
-var version = "Version 2.0.0";
+var version = "Version 2.0.2";
 //Setup: Canvas, background, init objects
 function setup() {
   //Canvas and Background
@@ -111,7 +111,7 @@ function draw() {
 }
 
 //Finds clicked on buttons
-function mouseClicked(){
+function mousePressed(){
   //check for snow button click
   let d = dist(mouseX, mouseY, height/5,height/5);
   if(d < height/10){
