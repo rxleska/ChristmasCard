@@ -1,4 +1,45 @@
 //serviceWorker.js
+
+
+//################################ INSTALL PROMPT ##############################
+var deferredPrompt;
+
+window.addEventListener('beforeinstallprompt', function (e)){
+  e.preventDefault();
+	deferredPrompt = e;
+
+	showAddToHomeScreen();
+}
+
+function showAddToHomeScreen(){
+	var adToHmScrBut = document.querySelector(".adToHmScrBut-prompt");
+	
+	adToHmScrBut.style.display = "block";
+	
+	adToHmScrBut.addEventListener("click", addToHomeScreen)
+}
+
+function addToHomeScreen(){var adToHmScrBut = document.querySelector(".adToHmScrBut-prompt");
+  adToHmScrBut.style.display = 'none';
+  deferredPrompt.prompt();
+  deferredPrompt.userChoice
+		.then(function(choiceResult){
+	
+	if(choiceResult.outcome === 'accepted'){
+		console.log('User accepted the A2HS prompt');
+	}else {
+		console.log('User dismissed the A2HS Prompt')
+	}
+		
+	defferredPrompt = null;
+		
+	});
+}
+//#############################################################################
+
+
+
+
 const cacheName = "myOfflineCache";
 //list all static files in your project
 const staticAssets = ["./", "./index.html"];
@@ -64,3 +105,5 @@ async function checkNetwork(req) {
     return cachedData;
   }
 }
+
+
