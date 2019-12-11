@@ -1,9 +1,15 @@
 {
   "name":"Christmascard",
   "short_name":"Card",
-  "start_url":"https://rxleska.github.io/ChristmasCard/index.html",
+  "start_url":"index.html",
   "display":"standalone",
   "background_color":"#000000", 
   "description":"turning my app into a pwa",
-  "icons":[{"src":"logo.jpg", "type": "image/jpg", "sizes" : "192x192"}]
+  "icons":[
+		{
+			"src":"logo.png",
+			"sizes" : "192x192",
+			"type": "image/png"
+		}
+	]
 }
