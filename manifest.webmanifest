@@ -1,6 +1,6 @@
 {
-  "name":"christmascard",
-  "short_name":"card",
+  "name":"Christmascard",
+  "short_name":"Card",
   "start_url":"https://rxleska.github.io/ChristmasCard/index.html",
   "display":"standalone",
   "background_color":"#000000", 
