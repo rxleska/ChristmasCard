@@ -66,7 +66,7 @@ function draw() {
 		localStorage.setItem('weat', items.get("weat"));
 		localStorage.setItem('earth', items.get("earth"));
 		
-		localStorage.setItem('total', button.getTotal());
+		localStorage.setItem('total', (float) button.getTotal();
 		saveCo = 0;
 	}
 	else{
