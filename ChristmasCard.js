@@ -16,8 +16,8 @@ let snowflakes = [];
 var counter = 0;
 var snowFreq;
 var sign;
-var saveCo = 150;
-var version = "Version 2.2.1";
+var saveCo = 99;
+var version = "Version 2.2.2";
 
 //Setup: Canvas, background, init objects
 function setup() {
@@ -55,7 +55,7 @@ function setup() {
 
 //Runs at framerate (60fps)
 function draw() {
-  if(saveCo > 180){
+  if(saveCo > 100){
 		//Every ten seconds
 		localStorage.setItem('blend', items.get("blend"));
 		localStorage.setItem('sCone', items.get("sCone"));
