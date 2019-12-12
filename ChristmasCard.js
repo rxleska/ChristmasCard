@@ -16,14 +16,14 @@ var counter = 0;
 var snowFreq;
 var sign;
 var saveCo = 0;
-var version = "Version 2.0.16";
+var version = "Version 2.0.17";
 
 //Setup: Canvas, background, init objects
 function setup() {
   //Canvas and Background
   createCanvas(windowWidth, windowHeight);
   background(100);
-  
+  //frameRate(60);
   //objects setup
   button = new Button();
   store = new Store();
@@ -42,7 +42,7 @@ function setup() {
   items.set("weat", localStorage.getItem('weat') || 0);
   items.set("earth", localStorage.getItem('earth') || 0);
   
-	button.setTotal(localStorage.getItem('total') || 0);
+  button.setTotal(localStorage.getItem('total') || 0);
 	
   //Other settings 
   textSize(height* 0.04);
