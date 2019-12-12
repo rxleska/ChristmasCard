@@ -17,7 +17,7 @@ var counter = 0;
 var snowFreq;
 var sign;
 var saveCo = 150;
-var version = "Version 2.2.0";
+var version = "Version 2.2.1";
 
 //Setup: Canvas, background, init objects
 function setup() {
@@ -30,18 +30,19 @@ function setup() {
   store = new Store();
   sign = new Sign();
   
+	
   //Init map and added items 
   items = new Map();
-  items.set("blend", localStorage.getItem('blend') || 0);
-  items.set("sCone", localStorage.getItem('sCone') || 0);
-  items.set("hole", localStorage.getItem('hole') || 0);
-  items.set("ski", localStorage.getItem('ski') || 0);
-  items.set("canTru", localStorage.getItem('canTru') || 0);
-  items.set("scis", localStorage.getItem('scis') || 0);
-  items.set("AC", localStorage.getItem('AC') || 0);
-  items.set("portal", localStorage.getItem('portal') || 0);
-  items.set("weat", localStorage.getItem('weat') || 0);
-  items.set("earth", localStorage.getItem('earth') || 0);
+  items.set("blend", parseInt(localStorage.getItem('blend') || 0));
+  items.set("sCone", parseInt(localStorage.getItem('sCone') || 0));
+  items.set("hole", parseInt(localStorage.getItem('hole') || 0));
+  items.set("ski", parseInt(localStorage.getItem('ski') || 0));
+  items.set("canTru", parseInt(localStorage.getItem('canTru') || 0));
+  items.set("scis", parseInt(localStorage.getItem('scis') || 0));
+  items.set("AC", parseInt(localStorage.getItem('AC') || 0));
+  items.set("portal", parseInt(localStorage.getItem('portal') || 0));
+  items.set("weat", parseInt(localStorage.getItem('weat') || 0));
+  items.set("earth", parseInt(localStorage.getItem('earth') || 0));
     
     
   button.setTotal( parseInt(localStorage.getItem('total')) || 0);
