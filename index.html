@@ -1,9 +1,10 @@
 <html>
 <head>
-	<link rel="manifest" type="image/png" sizes="192x192" href="Logo.png">
 	<link rel="manifest" crossorigin="use-credentials" href="./manifest.webmanifest">
-  <meta charset="UTF-8">
+  
+	<meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+	
 	<script>
 		 //first check if the browser supports the service worker
 		 if ("serviceWorker" in navigator) {
@@ -14,7 +15,8 @@
 			 .catch((err) => {console.log("Service worker registration failed");});
 		 }
 	</script>
-  <!-- PLEASE NO CHANGES BELOW THIS LINE (UNTIL I SAY SO) -->
+  
+	<!-- PLEASE NO CHANGES BELOW THIS LINE (UNTIL I SAY SO) -->
   <script language="javascript" type="text/javascript" src="libraries/p5.min.js"></script>
   <script language="javascript" type="text/javascript" src="Button.js"></script>
   <script language="javascript" type="text/javascript" src="Sign.js"></script>
