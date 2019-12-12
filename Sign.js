@@ -46,11 +46,17 @@ class Sign{
   }
 
   signMove(){
-    
-    this.posX =  this.posX > - (this.words.get(this.word).length * 20) ?  this.posX-1 : (height/80) + (height/2);
-    if(this.posX == (height/80) + (height/2)){
-      this.word = (button.getlen()/2) - 1;
+    try{
+        this.posX =  this.posX > - (this.words.get(this.word).length * 20) ?  this.posX-1 : (height/80) + (height/2);
+        if(this.posX == (height/80) + (height/2)){
+          this.word = (button.getlen()/2) - 1;
+        }    
     }
+    catch(error){
+        console.error(error);
+        sign.signMove();
+    }
+    
     //console.log(this.posX);
   }
 }
