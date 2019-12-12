@@ -11,6 +11,11 @@
       "sizes": "72x72",
       "type": "image/png"
     },
+		{
+      "src": "images/icons/apple-icon-180x180.png"",
+      "sizes": "180x180",
+      "type": "image/png"
+    },
     {
       "src": "images/icons/icon-96x96.png",
       "sizes": "96x96",
