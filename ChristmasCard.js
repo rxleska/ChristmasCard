@@ -9,6 +9,7 @@
 
 //Instantiate Objects, counters, and snowflake array
 var button;
+var errorCheck = 0;
 var store;
 var items;
 let snowflakes = [];
@@ -16,7 +17,7 @@ var counter = 0;
 var snowFreq;
 var sign;
 var saveCo = 0;
-var version = "Version 2.0.17";
+var version = "Version 2.0.18";
 
 //Setup: Canvas, background, init objects
 function setup() {
@@ -136,6 +137,8 @@ function draw() {
 
 //Finds clicked on buttons
 function mousePressed(){
+  console.log(errorCheck);
+  errorCheck++;
   //check for snow button click
   let d = dist(mouseX, mouseY, height/5,height/5);
   if(d < height/10){
