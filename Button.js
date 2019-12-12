@@ -43,4 +43,7 @@ class Button{
     }
     return count;
   }
+	setTotal(t){
+		this.total = t;
+	}
 }

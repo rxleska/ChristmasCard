@@ -15,6 +15,7 @@ let snowflakes = [];
 var counter = 0;
 var snowFreq;
 var sign;
+var saveCo = 0;
 var version = "Version 2.0.16";
 
 //Setup: Canvas, background, init objects
@@ -30,17 +31,19 @@ function setup() {
   
   //Init map and added items 
   items = new Map();
-  items.set("blend", 0);
-  items.set("sCone", 0);
-  items.set("hole", 0);
-  items.set("ski", 0);
-  items.set("canTru", 0);
-  items.set("scis", 0);
-  items.set("AC", 0);
-  items.set("portal", 0);
-  items.set("weat", 0);
-  items.set("earth", 0);
+  items.set("blend", localStorage.getItem('blend') || 0);
+  items.set("sCone", localStorage.getItem('sCone') || 0);
+  items.set("hole", localStorage.getItem('hole') || 0);
+  items.set("ski", localStorage.getItem('ski') || 0);
+  items.set("canTru", localStorage.getItem('canTru') || 0);
+  items.set("scis", localStorage.getItem('scis') || 0);
+  items.set("AC", localStorage.getItem('AC') || 0);
+  items.set("portal", localStorage.getItem('portal') || 0);
+  items.set("weat", localStorage.getItem('weat') || 0);
+  items.set("earth", localStorage.getItem('earth') || 0);
   
+	button.setTotal(localStorage.getItem('total') || 0);
+	
   //Other settings 
   textSize(height* 0.04);
   counter = 0;
@@ -49,7 +52,27 @@ function setup() {
 
 //Runs at framerate (60fps)
 function draw() {
-  
+  if(saveCo > 600){
+		//Every ten seconds
+		localStorage.setItem('blend', items.get("blend"));
+		localStorage.setItem('sCone', items.get("sCone"));
+		localStorage.setItem('hole', items.get("hole"));
+		localStorage.setItem('ski', items.get("ski"));
+		localStorage.setItem('canTru', items.get("canTru"));
+		localStorage.setItem('scis', items.get("scis"));
+		localStorage.setItem('AC', items.get("AC"));
+		localStorage.setItem('portal', items.get("portal"));
+		localStorage.setItem('weat', items.get("weat"));
+		localStorage.setItem('earth', items.get("earth"));
+		
+		localStorage.setItem('total', button.getTotal());
+		saveCo = 0;
+	}
+	else{
+		saveCo++;
+	}
+	
+	
   //Sets private var of total length
   let lenOfTot = button.getlen();
   
