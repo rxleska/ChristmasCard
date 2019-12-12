@@ -16,7 +16,7 @@ class Sign{
     this.words.set(8, "PLOWS IMPROVED SCHOOL IS NO LONGER CANCLED");
     this.words.set(9, "SCHOOL IS CANCLED AGAIN");
     this.words.set(10, "THE SKY IS WHITE THERE IS NO TOMORROW");
-    
+    this.lenOfWord = 0;
   }
   drawSign(){
     push();
@@ -46,17 +46,19 @@ class Sign{
   }
 
   signMove(){
+    
     try{
-        this.posX =  this.posX > - (this.words.get(this.word).length * 20) ?  this.posX-1 : (height/80) + (height/2);
-        if(this.posX == (height/80) + (height/2)){
-          this.word = (button.getlen()/2) - 1;
-        }    
+        this.lenOfWord = ("" + this.words.get(this.word)).length; 
     }
     catch(error){
         console.error(error);
-        sign.signMove();
+        this.lenOfWord = 60; 
     }
     
+    this.posX =  this.posX > - (this.lenOfWord * 20) ?  this.posX-1 : (height/80) + (height/2);
+    if(this.posX == (height/80) + (height/2)){
+      this.word = (button.getlen()/2) - 1;
+    } 
     //console.log(this.posX);
   }
 }

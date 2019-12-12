@@ -17,7 +17,7 @@ var counter = 0;
 var snowFreq;
 var sign;
 var saveCo = 360;
-var version = "Version 2.1.1";
+var version = "Version 2.1.2";
 
 //Setup: Canvas, background, init objects
 function setup() {
@@ -42,8 +42,9 @@ function setup() {
   items.set("portal", localStorage.getItem('portal') || 0);
   items.set("weat", localStorage.getItem('weat') || 0);
   items.set("earth", localStorage.getItem('earth') || 0);
-  
-  button.setTotal(localStorage.getItem('total') || 0);
+    
+    
+  button.setTotal( localStorage.getItem('total') || 0);
 	
   //Other settings 
   textSize(height* 0.04);
@@ -66,7 +67,7 @@ function draw() {
 		localStorage.setItem('weat', items.get("weat"));
 		localStorage.setItem('earth', items.get("earth"));
 		
-		localStorage.setItem('total', button.getTotal());
+		localStorage.setItem('total', Math.round(button.getTotal()));
 		saveCo = 0;
 	}
 	else{
