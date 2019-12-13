@@ -17,7 +17,7 @@ var counter = 0;
 var snowFreq;
 var sign;
 var saveCo = 99;
-var version = "Version 2.2.14";
+var version = "Version 2.2.16";
 
 //Setup: Canvas, background, init objects
 function setup() {
