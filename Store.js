@@ -14,6 +14,7 @@ class Store{
   }
   show(){
     textAlign(RIGHT);
+		let hewi = width > height ? height : height * 2/3;
     for(var i = 1; i <= 10; i++){
       if(store.canBuy(i-1)){
         fill(255,0,0);  
@@ -21,11 +22,11 @@ class Store{
       else{
         fill(200);
       }
-      circle(width-(0.05*height), (height/10)*i-(0.05*height), 0.04*height);
-      this.arr[i-1] = createVector(width-(0.05*height), (height/10)*i-(0.05*height)); 
+      circle(width-(0.05*hewi), (hewi/10)*i-(0.05*hewi), 0.04*hewi);
+      this.arr[i-1] = createVector(width-(0.05*hewi), (hewi/10)*i-(0.05*hewi)); 
       fill(0,255,255);
       textSize(height* 0.02);
-      text(store.getName(i-1)+ "   " + store.formatMon(items.get(store.type(i-1))), width-100, (height/10)*i-(0.045*height));
+      text(store.getName(i-1)+ "   " + store.formatMon(items.get(store.type(i-1))), width-100, (hewi/10)*i-(0.045*hewi));
       store.getPic(i-1,i);
     }
    
@@ -129,39 +130,39 @@ class Store{
         return floor(75000000000  * (Math.pow(1.15, items.get(store.type(a)))));
     }
   }
-  //image(     ,width-(0.05*height), (height/10)*i-(0.05*height),0.04*height);
+  //image(     ,width-(0.05*hewi), (hewi/10)*i-(0.05*hewi),0.04*height);
   getPic(a,i){
-    
+    let hewi = width > height ? height : height * 2/3;
     switch(a){
       case 0:
-        image(this.l, width-(0.05*height), (height/10)*i-(0.05*height),0.06*height,0.06*height);
+        image(this.l, width-(0.05*hewi), (hewi/10)*i-(0.05*hewi),0.06*hewi,0.06*hewi);
       break;
       case 1:
-        image(this.b, width-(0.05*height), (height/10)*i-(0.05*height),0.06*height,0.06*height);
+        image(this.b, width-(0.05*hewi), (hewi/10)*i-(0.05*hewi),0.06*hewi,0.06*hewi);
       break;
       case 2:
-        image(this.c ,width-(0.05*height), (height/10)*i-(0.05*height),0.06*height,0.06*height);
+        image(this.c ,width-(0.05*hewi), (hewi/10)*i-(0.05*hewi),0.06*hewi,0.06*hewi);
       break;
       case 3:
-        image(this.d ,width-(0.05*height), (height/10)*i-(0.05*height),0.06*height,0.06*height);
+        image(this.d ,width-(0.05*hewi), (hewi/10)*i-(0.05*hewi),0.06*hewi,0.06*hewi);
       break;
       case 4:
-        image(this.e ,width-(0.05*height), (height/10)*i-(0.05*height),0.06*height,0.06*height);
+        image(this.e ,width-(0.05*hewi), (hewi/10)*i-(0.05*hewi),0.06*hewi,0.06*hewi);
       break;
       case 5:
-        image(this.f, width-(0.05*height), (height/10)*i-(0.05*height),0.06*height,0.06*height);
+        image(this.f, width-(0.05*hewi), (hewi/10)*i-(0.05*hewi),0.06*hewi,0.06*hewi);
       break;
       case 6:        
-        image(this.g, width-(0.05*height), (height/10)*i-(0.05*height),0.06*height,0.06*height);
+        image(this.g, width-(0.05*hewi), (hewi/10)*i-(0.05*hewi),0.06*hewi,0.06*hewi);
       break;
       case 7:        
-        image(this.h, width-(0.05*height), (height/10)*i-(0.05*height),0.06*height,0.06*height);
+        image(this.h, width-(0.05*hewi), (hewi/10)*i-(0.05*hewi),0.06*hewi,0.06*hewi);
       break;
       case 8:        
-        image(this.j, width-(0.05*height), (height/10)*i-(0.05*height),0.06*height,0.06*height);
+        image(this.j, width-(0.05*hewi), (hewi/10)*i-(0.05*hewi),0.06*hewi,0.06*hewi);
       break;
       case 9:        
-        image(this.k, width-(0.05*height), (height/10)*i-(0.05*height),0.06*height,0.06*height);
+        image(this.k, width-(0.05*hewi), (hewi/10)*i-(0.05*hewi),0.06*hewi,0.06*hewi);
       break;
     }
   }

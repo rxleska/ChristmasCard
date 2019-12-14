@@ -17,7 +17,7 @@ var counter = 0;
 var snowFreq;
 var sign;
 var saveCo = 99;
-var version = "Version 2.3.1";
+var version = "Version 2.3.2";
 
 //Setup: Canvas, background, init objects
 function setup() {
@@ -195,12 +195,13 @@ function windowResized(){
 
 //loops getInfo for item drop downs
 function info(){
+	let hewi = width > height ? height : height * 2/3;
   for(var i = 0; i < 10; i++){
     d = dist(mouseX, mouseY, store.getPoint(i).x, store.getPoint(i).y);
       if(d < height*0.04){
         textAlign(RIGHT);
-        textSize(height* 0.015);
-        text(getInfo(i), width-100, (height/10)*i+(0.072*height));
+        textSize(hewi* 0.015);
+        text(getInfo(i), width-100, (hewi/10)*i+(0.072*hewi));
         
       }
    }
