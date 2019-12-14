@@ -16,27 +16,49 @@ class Sign{
     this.words.set(8, "PLOWS IMPROVED SCHOOL IS NO LONGER CANCLED");
     this.words.set(9, "SCHOOL IS CANCLED AGAIN");
     this.words.set(10, "THE SKY IS WHITE THERE IS NO TOMORROW");
-    this.lenOfWord = 0;
+		this.lenOfWords =  new Array(11);
+		this.lenOfWords[0] = "GOOD MORNING ROSEMOUNT, HAVE A NICE DAY".length;
+		this.lenOfWords[1] = "THIS IS A TEST OF OUR EMERGENCY SERVICES".length;
+		this.lenOfWords[2] = "SCHOOL IS DELAYED 2 HOURS".length;
+		this.lenOfWords[3] = "AFTER SCHOOL ACTIVITIES CANCLED: VOLLY BALL, SOCCER, TENNIS. FOOTBALL IS STILL ON!".length;
+		this.lenOfWords[4] = "SCHOOL CANCLED TOMMARROW".length;
+		this.lenOfWords[5] = "SCHOOL CANCLED FOR 3 DAYS".length;
+		this.lenOfWords[6] = "SCHOOL CANCELED FOR THE WEEK".length;
+		this.lenOfWords[7] = "SCHOOL CANCLED UNTIL FURTHER NOTICE".length;
+		this.lenOfWords[8] = "Polar Bears Migrating north to warm up".length;
+		this.lenOfWords[9] = "PLOWS IMPROVED SCHOOL IS NO LONGER CANCLED".length;
+		this.lenOfWords[10] = "SCHOOL IS CANCLED AGAIN".length;
+		this.lenOfWords[11] = "THE SKY IS WHITE THERE IS NO TOMORROW".length;
+		
+		
+		
+		this.brick = loadImage('/images/brickTexture.jpg');
+		this.signFont = loadFont('24dig.ttf');
   }
   drawSign(){
     push();
     translate(height/80,0);
-    fill(203, 65, 84);
-    rect(0,height/1.5,height/2, height/3);
-    fill(0);
-    textSize(height/12);
+		image(this.brick,height*0.25263157894,height/1.2,height/2, height/3);
+		stroke(0);
+		strokeWeight(4);
+		fill(100,250,100);
+    textSize(height/8);
     textAlign(CENTER);
-    text("RHS", height/4, height/1.3);
-    fill(100,255,100);
+    text("RHS", height/4, height/1.26);
+    
+		fill(0,10,0);
     rect(0,(height*8.5)/10,height/2,height/15);
     fill(0,255,255);
     pop();
     
+		textFont(this.signFont);
     textAlign(LEFT);
-    textSize(height*0.03);
-    fill(255,0,255);
-    text(this.words.get(this.word), this.posX,(height*9)/10);
-    
+    textSize(height*0.07);
+    fill(255,0,0);
+		//console.log(this.word);
+		text(this.words.get(floor(this.word)), this.posX,(height*145)/160);
+		textFont('arial');
+		
     push();
     noStroke();
     fill(30);
@@ -47,17 +69,14 @@ class Sign{
 
   signMove(){
     
-    try{
-        this.lenOfWord = ("" + this.words.get(this.word)).length; 
-    }
-    catch(error){
-        console.error(error);
-        this.lenOfWord = 60; 
-    }
+   
     
-    this.posX =  this.posX > - (this.lenOfWord * 20) ?  this.posX-1 : (height/80) + (height/2);
+    this.posX =  this.posX > - (this.lenOfWords[floor(this.word+1)] * height*0.03 ) ?  this.posX-1 : (height/80) + (height/2);
     if(this.posX == (height/80) + (height/2)){
       this.word = (button.getlen()/2) - 1;
+//			console.log(floor(this.word + 1));
+//			console.log(this.lenOfWords[floor(this.word+1)] );
+//			this.posX--;
     } 
     //console.log(this.posX);
   }
