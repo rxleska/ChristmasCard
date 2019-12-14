@@ -32,7 +32,7 @@ class Sign{
 		
 		
 		
-		this.brick = loadImage('/images/brickTexture.jpg');
+		this.brick = loadImage('images/brickTexture.jpg');
 		this.signFont = loadFont('24dig.ttf');
   }
   drawSign(){
