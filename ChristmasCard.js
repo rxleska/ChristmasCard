@@ -57,7 +57,7 @@ function setup() {
 function draw() {
 	// Stores items amount and total in local storage 
   if(saveCo > 100){
-		//Every ten seconds
+		// Every ten seconds
 		localStorage.setItem('blend', items.get("blend"));
 		localStorage.setItem('sCone', items.get("sCone"));
 		localStorage.setItem('hole', items.get("hole"));
@@ -124,7 +124,7 @@ function draw() {
   textSize(height* 0.04);
   text(store.formatMon(button.getTotal()),80,height/20);
   
-	// Version number
+  // Version number
   textAlign(LEFT);
   fill(0,255,255);
   textSize(height * 0.03);
