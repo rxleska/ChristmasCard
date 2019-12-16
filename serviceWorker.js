@@ -1,9 +1,29 @@
 //serviceWorker.js
 
+// #############################################################
+// Service Worker is a script that works on browser background 
+// without user interaction independently. Also, It resembles 
+// a proxy that works on the user side. - Basically this script 
+// manages the events needed to make a website a progressive web
+// app. The basic flowchart is request install, if installed 
+// request service worker, if online go to server if offline 
+// checkCache. This runs the application offline and online.
+// #############################################################
+
+// ###########################################
+// creates files system and application cache.
+// ###########################################
 const cacheName = "myOfflineCache";
+
 //list all static files in your project
 const staticAssets = ["./", "./index.html"];
 
+
+// #############################################################
+// #Request install of the app, this basically add the install 
+// #function to the web browser and explains how to install the 
+// #application to the cache
+// ############################################################
 self.addEventListener("install", async (event) => {
 //”caches” is an instance of the CacheStorage
 //the method “open” returns a promise that resolves to 
@@ -16,12 +36,18 @@ self.addEventListener("install", async (event) => {
 
 
 
-//serviceWorker.js
+// #########################################################
+// #Activates service worker when the application is opened#
+// #########################################################
 self.addEventListener("activate", event => {
   self.clients.claim();
 });
 
-//serviceWorker.js
+
+// ##############################################################
+// #Gets data of application first from online web service then #
+// #by the internal cache aswell or instead of checking the web.#
+// ##############################################################
 self.addEventListener("fetch", async event => {
   const req = event.request;
   const url = new URL(req.url);
@@ -36,6 +62,10 @@ self.addEventListener("fetch", async event => {
   }
 });
 
+//##########################################################
+//Checks the cache for the application returns cached data.
+// This function is called in the fetch function above.
+//##########################################################
 async function checkCache(req) {
 //open our cache
   const cache = await caches.open(cacheName);
@@ -45,6 +75,12 @@ async function checkCache(req) {
   return cachedData || fetch(req);
 }
 
+
+//##########################################################
+//Checks network and cache for files then matches the two sets
+//of data returns the acculative data.
+// This function is called in the fetch function above.
+//##########################################################
 async function checkNetwork(req) {
 //open our cache
   const cache = await caches.open(cacheName);

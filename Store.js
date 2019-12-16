@@ -1,6 +1,8 @@
 class Store{
   constructor(){
-    this.arr = [];
+    this.arr = []; // Circles 
+		
+		// Images on buy buttons
     this.l = loadImage('ClickArt/Blender.png');
     this.b = loadImage('ClickArt/SnowCone.png');
     this.c = loadImage('ClickArt/HolePuncher.png');
@@ -12,28 +14,39 @@ class Store{
     this.j = loadImage('ClickArt/Weat.png');
     this.k = loadImage('ClickArt/Earth.png');
   }
+	
   show(){
     textAlign(RIGHT);
+		
 		let hewi = width > height ? height : height * 2/3;
-    for(var i = 1; i <= 10; i++){
+    
+		for(var i = 1; i <= 10; i++){
       if(store.canBuy(i-1)){
         fill(255,0,0);  
       }
       else{
         fill(200);
       }
-      circle(width-(0.05*hewi), (hewi/10)*i-(0.05*hewi), 0.04*hewi);
+      
+			// Base Circles
+			circle(width-(0.05*hewi), (hewi/10)*i-(0.05*hewi), 0.04*hewi);
       this.arr[i-1] = createVector(width-(0.05*hewi), (hewi/10)*i-(0.05*hewi)); 
-      fill(0,255,255);
+      
+			// Text information 
+			fill(0,255,255);
       textSize(height* 0.02);
       text(store.getName(i-1)+ "   " + store.formatMon(items.get(store.type(i-1))), width-100, (hewi/10)*i-(0.045*hewi));
-      store.getPic(i-1,i);
+      
+			// Pictures 
+			store.getPic(i-1,i);
     }
    
   }
   getPoint(a){
     return this.arr[a];
   }
+	
+	// Return shortname of each item
   type(a){
     switch(a){
       case 0:
@@ -58,6 +71,8 @@ class Store{
         return "earth";
     }
   }
+	
+	// Gets value to be added to total for each
   getTypeVal(a){
     switch(a){
       case 0:
@@ -82,6 +97,9 @@ class Store{
         return 1600000;
     }
   }
+	
+	
+	// Returns long name for items
   getName(a){
     switch(a){
       case 0:
@@ -106,6 +124,8 @@ class Store{
         return "Earth Movers";
     }
   }
+	
+	// Gets cost of the item  based around the number of items
   getCost(a){
     switch(a){
       case 0:
@@ -130,7 +150,8 @@ class Store{
         return floor(75000000000  * (Math.pow(1.15, items.get(store.type(a)))));
     }
   }
-  //image(     ,width-(0.05*hewi), (hewi/10)*i-(0.05*hewi),0.04*height);
+	
+  //draws pictures
   getPic(a,i){
     let hewi = width > height ? height : height * 2/3;
     switch(a){
@@ -167,6 +188,7 @@ class Store{
     }
   }
   
+	// bool of weather the item is buyable 
   canBuy(a){
     let c = button.getTotal();
     if(c >= store.getCost(a)){
@@ -175,7 +197,7 @@ class Store{
     return false;
   }
   
-  //Formats numbers
+ // Formats numbers
  formatMon(x){
   if(x >            1000000000000000000000000000000000000){
     let d = "" + x; 
@@ -215,5 +237,5 @@ class Store{
     return floor(x/10)/100 + " K";
   }
   return floor(x);
-}
+ 	}
 }

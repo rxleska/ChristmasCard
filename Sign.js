@@ -2,7 +2,10 @@ class Sign{
   constructor(){
     this.posX = (height/80) + (height/2);
     this.posY = ((height*9)/10);
-    this.word = -1;
+		
+    this.word = -1; // Starting word sequence 
+		
+		// RHS BOARD TEXT
     this.words = new Map();
     this.words.set(-1, "GOOD MORNING ROSEMOUNT, HAVE A NICE DAY");
     this.words.set(0, "THIS IS A TEST OF OUR EMERGENCY SERVICES");
@@ -16,6 +19,8 @@ class Sign{
     this.words.set(8, "PLOWS IMPROVED SCHOOL IS NO LONGER CANCLED");
     this.words.set(9, "SCHOOL IS CANCLED AGAIN");
     this.words.set(10, "THE SKY IS WHITE THERE IS NO TOMORROW");
+		
+		// RHS BOARD LENGTHS
 		this.lenOfWords =  new Array(11);
 		this.lenOfWords[0] = "GOOD MORNING ROSEMOUNT, HAVE A NICE DAY".length;
 		this.lenOfWords[1] = "THIS IS A TEST OF OUR EMERGENCY SERVICES".length;
@@ -31,34 +36,41 @@ class Sign{
 		this.lenOfWords[11] = "THE SKY IS WHITE THERE IS NO TOMORROW".length;
 		
 		
-		
+		// Brick Texture and digital sign font
 		this.brick = loadImage('images/brickTexture.jpg');
 		this.signFont = loadFont('24dig.ttf');
   }
+	
   drawSign(){
+		
+		// Sign Background
     push();
     translate(height/80,0);
 		image(this.brick,height*0.25263157894,height/1.2,height/2, height/3);
 		stroke(0);
 		strokeWeight(4);
+		
+		// Rhs logo/text
 		fill(100,250,100);
     textSize(height/8);
     textAlign(CENTER);
     text("RHS", height/4, height/1.26);
     
+		// Scrolling text background
 		fill(0,10,0);
     rect(0,(height*8.5)/10,height/2,height/15);
     fill(0,255,255);
     pop();
     
+		// Sign text
 		textFont(this.signFont);
     textAlign(LEFT);
     textSize(height*0.07);
     fill(255,0,0);
-		//console.log(this.word);
 		text(this.words.get(floor(this.word)), this.posX,(height*145)/160);
 		textFont('arial');
 		
+		// Sign text cut out
     push();
     noStroke();
     fill(30);
@@ -69,15 +81,10 @@ class Sign{
 
   signMove(){
     
-   
+		this.posX =  this.posX > - (this.lenOfWords[floor(this.word+1)] * height*0.03 ) ? this.posX-1 : (height/80) + (height/2);
     
-    this.posX =  this.posX > - (this.lenOfWords[floor(this.word+1)] * height*0.03 ) ?  this.posX-1 : (height/80) + (height/2);
-    if(this.posX == (height/80) + (height/2)){
+		if(this.posX == (height/80) + (height/2)){
       this.word = (button.getlen()/2) - 1;
-//			console.log(floor(this.word + 1));
-//			console.log(this.lenOfWords[floor(this.word+1)] );
-//			this.posX--;
     } 
-    //console.log(this.posX);
   }
 }
